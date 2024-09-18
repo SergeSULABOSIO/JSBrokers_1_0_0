@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+    </head>
+    <body>
+        {% if field.value is not empty %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                    <th scope="col">N°</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Poste</th>
+                    <th scope="col">Téléphone</th>
+                    <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% set i = 1 %}
+                    {% for contact in field.value %}
+                        <tr>
+                            <td scope="row">{{ i }}</td>
+                            <th>{{contact.nom}}</td>
+                            <td>{{contact.poste}}</td>
+                            <td>{{contact.telephone}}</td>
+                            <td>{{contact.email}}</td>
+                        </tr>
+                        {% set i = i + 1 %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <i class="fa-solid fa-face-frown-open"></i> Aucun contact n'est disponible pour l'instant.
+        {% endif %}
+    </body>
+</html>

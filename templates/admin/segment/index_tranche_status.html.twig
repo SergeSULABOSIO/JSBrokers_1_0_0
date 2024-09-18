@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+    </head>
+    <body>
+        {% if field.value is not empty %}
+            {% set monnaie = field.value["monnaie"] %}
+            <span class="badge badge-primary text-right mb-3 p-2">
+                Montant dû : {{ (field.value['target'] / 100)|format_currency(monnaie)}}<br/>  
+                Montant facturé : {{ (field.value['facture']['montantInvoiced'] / 100)|format_currency(monnaie)}}<br/>  
+                Montant payé : {{ (field.value['paiements']['montantPaye'] / 100)|format_currency(monnaie)}}<br/>    
+                Solde dû : {{ (field.value['solde'] / 100)|format_currency(monnaie)}}<br/> 
+                Solde à facturer : {{ (field.value['facture']['montantToBeInvoiced'] / 100)|format_currency(monnaie)}}<br/> 
+                {% if (field.value['produire'] == true) %}
+                    <span class="badge bg-warning text-white text-wrap">
+                        {{field.value['message']}}
+                    </span>
+                {% else %}
+                    {% if ((field.value['target'] / 100) == 0) %}
+                        <span class="badge bg-danger text-white text-wrap">
+                            {{field.value['message']}}
+                        </span>
+                    {% else %}
+                        <span class="badge bg-dark text-white text-wrap">
+                            {{field.value['message']}}
+                        </span>
+                    {% endif %}
+                {% endif %}
+            </span>
+        {% else %}
+            Null
+        {% endif %}
+    </body>
+</html>

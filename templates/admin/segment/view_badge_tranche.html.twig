@@ -1,0 +1,15 @@
+<span class="badge badge-primary mb-3 p-1 text-wrap">
+  <i class="fa-solid fa-cash-register"></i> 
+  Total : {{ (tabDetails['target'] / 100)|format_currency(monnaie.code)}} |
+  Paiements : {{ (tabDetails['paiements']['montantPaye'] / 100)|format_currency(monnaie.code)}} |
+  Solde dû à facturer : {{ (tabDetails['solde'] / 100)|format_currency(monnaie.code)}}
+  {% if (tabDetails['produire'] == true) %}
+    <span class="badge bg-warning text-white text-wrap">
+      {{tabDetails['message']}}
+    </span>
+  {% else %}
+    <span class="badge bg-dark text-white text-wrap">
+      {{tabDetails['message']}}
+    </span>
+  {% endif %}
+</span>
