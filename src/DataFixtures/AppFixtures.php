@@ -2,39 +2,15 @@
 
 namespace App\DataFixtures;
 
-use App\Controller\Admin\CotationCrudController;
-use App\Controller\Admin\PoliceCrudController;
 use Faker\Factory;
-use App\Entity\Taxe;
-use App\Entity\Piste;
-use App\Entity\Action;
 use App\Entity\Client;
-use App\Entity\Expert;
-use App\Entity\Article;
-use App\Entity\Contact;
-use App\Entity\Monnaie;
 use App\Entity\Produit;
-use App\Entity\Victime;
 use App\Entity\Assureur;
-use App\Entity\Cotation;
-use App\Entity\DocPiece;
 use App\Entity\EtapeCrm;
-use App\Entity\ActionCRM;
-use App\Entity\Automobile;
-use App\Entity\Entreprise;
-use App\Entity\Partenaire;
-use App\Entity\DocClasseur;
-use App\Entity\EntreeStock;
-use App\Entity\FeedbackCRM;
-use App\Entity\Utilisateur;
-use App\Entity\DocCategorie;
-use App\Entity\EtapeSinistre;
 use App\Service\ServiceEntreprise;
-use App\Entity\CommentaireSinistre;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use App\Controller\Admin\UtilisateurCrudController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
