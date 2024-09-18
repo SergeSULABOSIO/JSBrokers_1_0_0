@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JS Brokers
+{% endblock %}
+
+{% block body %}
+	{% include 'segments/_mainheader.html.twig' %}
+	<div class="example-wrapper">
+		{{ render_chart(chart) }}
+		Test - SweetAlert -
+		<a href="{{path('security.logout')}}">Deconnexion</a>
+		<div>
+			<a id="bt1" class="btn btn-success">Info</a>
+			<a id="bt2" class="btn btn-danger">Delete</a>
+			<a id="bt3" class="btn btn-warning">Warning</a>
+			<a id="bt4" class="btn btn-danger">Error</a>
+		</div>
+		<div class="card card-gray mt-3">
+			<div class="card-header">
+				<h3 class="card-title">Bien venue Serge,</h3>
+			</div>
+
+			<div class="card-body">
+				<p>
+					Votre compte vient d'être créer avec succès.
+				</p>
+				<p>
+					Voici, ci-dessous, les informations de connexion à votre compte et merci de bien les garder confidentielles. 
+																				Notez que vous pouvez toujours les modifier quand cela vous arrangera.
+				</p>
+
+				<strong>
+					<i class="fas fa-regular fa-envelope mr-1"></i>
+					Adress mail:
+				</strong>
+				<p class="text-muted">
+					sulabosiog@gmail.com
+				</p>
+				<hr>
+				<strong>
+					<i class="fas fa-solid fa-lock mr-1"></i>
+					Mot de passe:
+				</strong>
+				<p class="text-muted">
+					adorer
+				</p>
+				<hr>
+
+				<p class="text-muted">
+					<a href="{{path('security.login')}}">Pour se connecter à votre compte, cliquez ici.</a>
+				</p>
+				<p class="text-muted">
+					<a href="{{path('security.register.admin')}}">Pour se créer cotre compte, cliquez ici.</a>
+				</p>
+				<p>
+					Merci de votre confiance!
+				</p>
+			</div>
+			<div class="card-footer">
+				© 2023 JS Brokers, Inc.
+			</div>
+		</div>
+
+
+	</div>
+{% endblock %}
