@@ -173,13 +173,18 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface, 
         return $this;
     }
 
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
+    // /**
+    //  * @see UserInterface
+    //  */
+    // public function eraseCredentials()
+    // {
+    //     // If you store any temporary, sensitive data on the user, clear it here
+    //     // $this->plainPassword = null;
+    // }
+
+    public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        
     }
 
     public function getNom(): ?string
