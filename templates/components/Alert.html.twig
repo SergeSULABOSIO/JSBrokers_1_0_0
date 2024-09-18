@@ -1,0 +1,19 @@
+<div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
+	<strong>{{ titre }}:
+	</strong>
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	{{ message }}.
+	<hr/>
+	Liste des pistes ({{ this.nbpistes }}):
+	<ol>
+		{% for piste in this.pistes %}
+			<li>{{ piste.nom }}
+				| Par
+				{{ piste.utilisateur.nom }}, le
+				{{ piste.createdAt|date("m/d/Y à h:m") }}</li>
+		{% endfor %}
+	</ol>
+	{{ component('DateActuelle')}}
+</div>
