@@ -1,0 +1,24 @@
+{% extends 'pdf/composants/_base.html.twig' %}
+
+{% block title %}Note - {{facture.reference}}{% endblock %}
+
+{% block body %}
+	<div class="page-js">
+        {% set page = 1 %}
+        {% set pageTotale = 2 %}
+        {# Entête de la page #}
+        {% include 'pdf/composants/_header.html.twig' %}
+        {# Titre #}
+        {% include 'pdf/composants/_titre.html.twig' %}
+        {# Synthèse numérique de la facture #}
+        {% include 'pdf/composants/_synthese.html.twig' %}
+        {# Signatiare de la facture #}
+        {% include 'pdf/composants/_signataire.html.twig' %}
+        {# Ressort #}
+        {% include 'pdf/composants/_ressort.html.twig' with {'tailleTabActuel': facture.compteBancaires|length, 'tailleTabMax': 10, 'tailleBoucleMin': 2} %}
+        {# Comptes bancaires #}
+        {% include 'pdf/composants/_comptesbancaires.html.twig' %}
+        {# Footer etait ici #}
+        {% include 'pdf/composants/_footer.html.twig' with {'currentPage': page, 'totalPage': pageTotale} %}
+    </div>
+{% endblock %}

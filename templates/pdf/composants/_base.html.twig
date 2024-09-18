@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}JS Brokers - PDF{% endblock %}</title>
+        <style type="text/css">
+            .texte-taille-extra-large{
+                font-size: 14px;
+            }
+            .texte-taille-large{
+                font-size: 12px;
+            }
+            .texte-taille-normale{
+                font-size: 11px;
+            }
+            .texte-taille-petit{
+                font-size: 8px;
+            }
+            .texte-taille-extra-petite{
+                font-size: 6pt;
+            }
+            .texte-titre{
+                padding: 3px;
+                text-align: center;
+                font-weight: bold;
+            }
+            .texte-normal{
+                padding: 3px;
+            }
+            .texte-rouge{
+                color: #890000;
+            }
+            .texte-bleu{
+                color: #000089;
+            }
+            .texte-gras{
+                font-weight: bold;
+            }
+            .texte-petit{
+                padding: 3px;
+            }
+            .texte-centre{
+                text-align: center;
+            }
+            .texte-gauche{
+                text-align: left;
+            }
+            .texte-droite{
+                text-align: right;
+            }
+            .texte-blanc{
+                color: white;
+            }
+            .bordure{
+                border: 0.5px solid #000089;
+            }
+            .bordure-top{
+                border-top: 0.5px solid #000089;
+            }
+            .bordure-bottom{
+                border-bottom: 0.5px solid #000089;
+            }
+            .bg-sombre{
+                background-color: lightgray;
+            }
+            .bg-pair{
+                background-color: whitesmoke;
+            }
+            .largeur-max{
+                width: 100%;
+            }
+            .centre{
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .droite{
+                margin-left: auto;
+                margin-right: 0%;
+            }
+            
+            .largeur-logo{
+                width: 30%;
+            }
+            .image-centre{
+                margin-left: 30%;
+                margin-right: 30%;
+                width: 40%;
+            }
+            .marge-top-extralarge{
+                margin-top: 100px;
+            }
+            .marge-bottom-zero{
+                margin-bottom: 0px;
+            }
+            .marge-bottom-large{
+                margin-bottom: 30px;
+            }
+            .marge-top-large{
+                margin-top: 50px;
+            }
+            .marge-top-moyen{
+                margin-top: 20px;
+            }
+            .marge-top-petit{
+                margin-top: 10px;
+            }
+            .marge-bottom-large{
+                margin-top: 50px;
+            }
+            .marge-bottom-zero{
+                margin-bottom: 0px;
+            }
+            .tableau-contenu-entete{
+                border: 0.5px solid black;
+                border-spacing: 0px;
+                background-color: lightgray;
+                padding: 3px;
+                text-align: center;
+            }
+            .tableau-contenu-normal{
+                border: 0.5px solid black;
+                padding: 3px;
+            }
+            .tableau-contenu-droite{
+                text-align: right;
+            }
+            .tableau-bordure{
+                border: 0.5px solid #000089;
+                border-spacing: 0px;
+                padding: 3px;
+            }
+            .tableau-bordure-blanche{
+                border: 1px solid white;
+                border-spacing: 0px;
+                padding: 3px;
+            }
+            .tableau-bordure-bottom{
+                border-bottom: 0.5px solid #000089;
+                border-spacing: 0px;
+                padding: 3px;
+            }
+            .tableau-bordure-top{
+                border-top: 3px solid #000089;
+                border-spacing: 0px;
+                padding: 3px;
+            }
+            .tableau-bordure-bleu{
+                border-color: #000089;
+            }
+            .tableau-bordure-zero{
+                border: 0px solid #000089;
+                border-spacing: 0px;
+                padding: 3px;
+            }
+            .tab-titre-label{
+                border-bottom: 3px solid #000089;
+                border-spacing: 0px;
+                padding: 3px;
+                color: #000089;
+                font-weight: bold;
+                text-align: left;
+            }
+            .titre-grand-label{
+                width: 100%;
+                margin-top: 20px;
+                border-bottom: 3px solid #000089;
+                border-spacing: 0px;
+                padding: 3px;
+                color: #000089;
+                font-weight: bold;
+                text-align: center;
+            }
+            .tab-titre-valeur{
+                border-bottom: 3px solid #000089;
+                border-spacing: 0px;
+                padding: 3px;
+                color: #000089;
+                font-weight: bold;
+                text-align: right;
+            }
+            .tab-ligne-label{
+                border-bottom: 0.5px solid #000089;
+                border-spacing: 0px;
+                padding: 3px;
+                font-weight: normal;
+                text-align: left;
+            }
+            .tab-ligne-valeur{
+                border-bottom: 0.5px solid #000089;
+                border-spacing: 0px;
+                padding: 3px;
+                font-weight: normal;
+                text-align: right;
+            }
+            .page-js{
+                width: 100%;
+                height: 1000px;
+                {# background-color: aqua; #}
+                page-break-after: always;
+            }
+            .page-js:last-child{
+                page-break-after: unset;
+            }
+            .landscape-content{
+                size: 9in 6in;
+                background-color: red;
+                transform: translate(100vw) rotate(90deg);
+            }
+            .wrapper{
+                transform: rotate(90deg);
+                background-color: red;
+            }
+            .a-la-ligne-auto {
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+        </style>
+    </head>
+    <body>
+        {% block body %}...JS Brokers...{% endblock %}
+    </body>
+</html>

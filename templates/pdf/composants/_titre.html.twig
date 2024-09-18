@@ -1,0 +1,79 @@
+{# barre de titre #}
+{% if isBordereau == 1 %}
+    <table class="titre-grand-label texte-taille-petit">
+        <tr>
+            <td>
+                <div>N°{{facture.reference}} - BORDEREAU - {{nature}}</div>
+            </td>
+        </tr>
+    </table>
+{% else %}
+    <table class="titre-grand-label texte-taille-normale">
+        <tr>
+            <td>
+                <div>
+                    {% if facture.destination == 0 %}
+                        NOTE DE CREDIT
+                    {% elseif facture.destination == 1 %}
+                        NOTE DE DEBIT
+                    {% elseif facture.destination == 2 %}
+                        NOTE DE DEBIT
+                    {% elseif facture.destination == 3 %}
+                        NOTE DE CREDIT
+                    {% elseif facture.destination == 4 %}
+                        NOTE DE CREDIT
+                    {% endif %}
+                </div>
+            </td>
+        </tr>
+    </table>
+    {# Référence, date et type de facture #}
+    <table class="tableau-bordure-zero centre texte-taille-normale" style="width: 98%;">
+        <tr>
+            <td><span class="texte-bleu">RCCM:</span> {{facture.entreprise.rccm}}</td>
+            <td class="texte-droite"><span class="texte-bleu">DATE:</span> {{facture.createdAt | date("d/m/Y")}}</td> {# date("d/m/Y à G:H:i") #}
+        </tr>
+        <tr>
+            <td><span class="texte-bleu">NIF:</span> {{facture.entreprise.numimpot}}</td>
+            <td class="texte-droite"><span class="texte-bleu">REFERENCE:</span> {{facture.reference}}</td>
+        </tr>
+        <tr>
+            <td><span class="texte-bleu">ID. NAT:</span> {{facture.entreprise.idnat}}</td>
+            <td class="texte-droite"><span class="texte-bleu">NATURE:</span> 
+                {% if facture.destination == 1 %}
+                    {# Destination Assureur #}
+                    COMMISSION DE COURTAGE
+                {% elseif facture.destination == 4 %}
+                    {# Destination Partenaire #}
+                    RETROCOMMISSION DUE A {{facture.partenaire.nom}} ({{facture.partenaire.part * 100}}%)
+                {% elseif facture.destination == 0  or facture.destination == 3 %}
+                    {# Destination ARCA et DGI #}
+                    NOTE DE CREDIT
+                {% elseif facture.destination == 2 %}
+                    {# Destination Client #}
+                    FRAIS DE GESTION ET/OU PRIME D'ASSURANCE
+                {% endif %}
+            </td>
+        </tr>
+    </table>
+    {# Facture à l'attention de... & Description de la facture #}
+    <table class="tableau-bordure-zero centre marge-top-large texte-taille-normale" style="width: 98%;">
+        <tr>
+            <td style="width: 250px;">
+                <span class="texte-bleu">POUR:</span></br>
+                {{pour|raw}}
+            </td>
+            <td class="texte-droite">
+                <span class="texte-bleu">DESCRIPTION:</span> </br>
+                <strong>
+                    {{facture.description|raw}}
+                </strong>
+            </td>
+        </tr>
+    </table>
+{% endif %}
+
+
+
+
+
