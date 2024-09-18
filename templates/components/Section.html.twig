@@ -2,10 +2,53 @@
 	class="bg-body-tertiary mb-1">
 	{# Pour la Section de haut de la page #}
 	{% if this.type == 0 %}
-		<div class="shadow-sm border-bottom p-2">
-			<span class="fw-bold fs-6">
-				{{ ux_icon('tabler:dashboard', {height: '30px', width: '30px'}) }} JS Brokers | Serge SULA BOSIO | Tableau de bord de gestion | Boutons de création sous forme de combo box | Bouton de déconnexion (extrême droite)
-			</span>
+		<div class="d-flex shadow-sm border-bottom p-2">
+			<div class="flex-grow-1 fw-bold fs-4">
+				{{ ux_icon('tabler:dashboard', {height: '40px', width: '40px'}) }}
+				JS Brokers | Serge SULA BOSIO | Tableau de bord de gestion |
+			</div>
+			<div>
+				<button class="btn btn-outline-secondary dropdown-toggle btn-success text-light border border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					{{ ux_icon('gridicons:add-outline', {height: '25px', width: '25px'}) }}
+					Ajouter
+				</button>
+				<ul class="dropdown-menu dropdown-menu-end">
+					<li>
+						<a class="dropdown-item" href="#">
+							{{ ux_icon('solar:target-linear', {height: '18px', width: '18px'}) }}
+							Une Piste
+						</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">
+							{{ ux_icon('mingcute:task-line', {height: '18px', width: '18px'}) }}
+							Une Tâche
+						</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">
+							{{ ux_icon('solar:home-linear', {height: '18px', width: '18px'}) }}
+							Un Client
+						</a>
+					</li>
+					<li>
+						<a class="dropdown-item" href="#">
+							{{ ux_icon('icon-park-outline:protection', {height: '18px', width: '18px'}) }}
+							Un Assureur
+						</a>
+					</li>
+				</ul>
+				<button class="btn btn-outline-secondary border border-0" type="button">
+					{{ ux_icon('solar:home-linear', {height: '25px', width: '25px'}) }}
+				</button>
+				<button class="btn btn-outline-secondary border border-0" type="button">
+					{{ ux_icon('hugeicons:setup-01', {height: '25px', width: '25px'}) }}
+				</button>
+				<button class="btn btn-outline-secondary border border-0 btn-danger text-light" type="button">
+					{{ ux_icon('mingcute:exit-fill', {height: '25px', width: '25px'}) }}
+				</button>
+			</div>
+			<div></div>
 		</div>
 	{% else %}
 		Nom de la Section:
