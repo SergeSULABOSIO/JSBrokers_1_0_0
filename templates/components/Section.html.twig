@@ -2,9 +2,9 @@
 	class="bg-secondary p-2 mb-1">
 	{# Pour la Section de haut de la page #}
 	{% if this.type == 0 %}
-		<span>
-			Icone | JS Brokers | Serge SULA BOSIO | Tableau de bord de gestion | Boutons de création sous forme de combo box | Bouton de déconnexion (extrême droite)
-		<span>
+		<h2>
+			{{ ux_icon('tabler:dashboard', {height: '30px', width: '30px'}) }} Icone | JS Brokers | Serge SULA BOSIO | Tableau de bord de gestion | Boutons de création sous forme de combo box | Bouton de déconnexion (extrême droite)
+		</h2>
 	{% else %}
 		Nom de la Section:
 		{{this.nom}}<br>
