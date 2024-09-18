@@ -47,6 +47,12 @@
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
     },
+    "php-flasher/flasher-notyf-symfony": {
+        "version": "v2.0.1"
+    },
+    "php-flasher/flasher-symfony": {
+        "version": "v2.0.1"
+    },
     "phpunit/phpunit": {
         "version": "9.6",
         "recipe": {

@@ -10,4 +10,4 @@ import './styles/app.css';
 // start the Stimulus application
 import './bootstrap';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+// console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
