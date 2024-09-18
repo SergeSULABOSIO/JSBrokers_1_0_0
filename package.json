@@ -21,6 +21,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "notyf": "^3.10.0",
         "sweetalert2": "^11.14.0"
     }
 }
