@@ -22,16 +22,18 @@ class PagePrincipaleController extends AbstractController
         private ServiceCrossCanal $serviceCrossCanal
     ) {}
 
-    
-    #[Route('/dashbord_courtier/{id_utilisateur}/{id_entreprise}', name: 'app_page_dashbord_courtier')]
-    public function dashbordCourtier($id_entreprise, $id_utilisateur): Response
-    {
-        dd("Entreprise = " . $id_entreprise . ", Utilisteur = " . $id_utilisateur);
 
-        return $this->render('page_principale/dashbord_courtier.html.twig', [
-            'pageName' => 'Dashbord Courtier',
+
+    #[Route('/', name: 'app_page_index')]
+    public function index(): Response
+    {
+        return $this->render('page_principale/index.html.twig', [
+            'pageName' => "Page d'acceuil du site",
         ]);
     }
+
+
+
 
     #[Route('/creer_utilisateur', name: 'app_page_creer_utilisateur')]
     public function creerUtilisateur(): Response
@@ -42,6 +44,35 @@ class PagePrincipaleController extends AbstractController
             'pageName' => 'Création du compte Utilisateur',
         ]);
     }
+
+
+
+
+    #[Route('/login_utilisateur', name: 'app_page_login_utilisateur')]
+    public function loginUtilisateur(): Response
+    {
+        dd("Connexion au compte Utilisateur");
+
+        return $this->render('page_principale/login_utilisateur.html.twig', [
+            'pageName' => 'Connexion au compte Utilisateur',
+        ]);
+    }
+
+
+
+
+    #[Route('/dashbord_utilisateur/{id_utilisateur}', name: 'app_page_dashbord_utilisateur')]
+    public function dashbordUtilisateur($id_utilisateur): Response
+    {
+        dd("Utilisteur = " . $id_utilisateur);
+
+        return $this->render('page_principale/dashbord_utilisateur.html.twig', [
+            'pageName' => 'Dashbord Utilisateur',
+        ]);
+    }
+
+
+
 
     #[Route('/creer_entreprise/{id_utilisateur}', name: 'app_page_creer_entreprise')]
     public function creerEntreprise($id_utilisateur): Response
@@ -54,13 +85,16 @@ class PagePrincipaleController extends AbstractController
     }
 
 
-    #[Route('/', name: 'app_page_index')]
-    public function index(): Response
+
+
+    
+    #[Route('/dashbord_courtier/{id_utilisateur}/{id_entreprise}', name: 'app_page_dashbord_courtier')]
+    public function dashbordCourtier($id_entreprise, $id_utilisateur): Response
     {
-        return $this->render('page_principale/index.html.twig', [
-            'pageName' => "Page d'acceuil du site",
+        dd("Entreprise = " . $id_entreprise . ", Utilisteur = " . $id_utilisateur);
+
+        return $this->render('page_principale/dashbord_courtier.html.twig', [
+            'pageName' => 'Dashbord Courtier',
         ]);
     }
-
-
 }
