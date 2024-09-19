@@ -88,12 +88,12 @@ class PagePrincipaleController extends AbstractController
 
 
     
-    #[Route('/dashbord_courtier/{id_utilisateur}/{id_entreprise}', name: 'app_page_dashbord_courtier')]
+    #[Route('/dashbord_entreprise/{id_utilisateur}/{id_entreprise}', name: 'app_page_dashbord_entreprise')]
     public function dashbordCourtier($id_entreprise, $id_utilisateur): Response
     {
         dd("Entreprise = " . $id_entreprise . ", Utilisteur = " . $id_utilisateur);
 
-        return $this->render('page_principale/dashbord_courtier.html.twig', [
+        return $this->render('page_principale/dashbord_entreprise.html.twig', [
             'pageName' => 'Dashbord Courtier',
         ]);
     }
