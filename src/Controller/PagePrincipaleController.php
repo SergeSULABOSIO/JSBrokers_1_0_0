@@ -5,20 +5,16 @@ namespace App\Controller;
 use App\Service\ServiceCrossCanal;
 use App\Service\ServiceEntreprise;
 use App\Service\ServicePreferences;
-use Symfony\UX\Chartjs\Model\Chart;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\UX\Chartjs\Builder\ChartBuilderInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PagePrincipaleController extends AbstractController
 {
 
-
     public function __construct(
-        // private ChartBuilderInterface $chartBuilder,
         private ServicePreferences $servicePreferences,
         private EntityManagerInterface $entityManager,
         private AdminUrlGenerator $adminUrlGenerator,
@@ -27,37 +23,44 @@ class PagePrincipaleController extends AbstractController
     ) {}
 
     
-    #[Route('/principal', name: 'app_page_principale')]
-    public function index(): Response
+    #[Route('/dashbord_courtier/{id_utilisateur}/{id_entreprise}', name: 'app_page_dashbord_courtier')]
+    public function dashbordCourtier($id_entreprise, $id_utilisateur): Response
     {
-        // $chart = $this->chartBuilder->createChart(Chart::TYPE_LINE);
+        dd("Entreprise = " . $id_entreprise . ", Utilisteur = " . $id_utilisateur);
 
-        // $chart->setData([
-        //     'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        //     'datasets' => [
-        //         [
-        //             'label' => 'My First dataset',
-        //             'backgroundColor' => 'rgb(255, 99, 132)',
-        //             'borderColor' => 'rgb(255, 99, 132)',
-        //             'data' => [0, 10, 5, 2, 20, 30, 45],
-        //         ],
-        //     ],
-        // ]);
-
-        // $chart->setOptions([
-        //     'scales' => [
-        //         'y' => [
-        //             'suggestedMin' => 0,
-        //             'suggestedMax' => 100,
-        //         ],
-        //     ],
-        // ]);
-
-        // dd($chart);
-
-        return $this->render('page_principale/index.html.twig', [
-            'controller_name' => 'PagePrincipaleController',
-            // 'chart' => $chart,
+        return $this->render('page_principale/dashbord_courtier.html.twig', [
+            'pageName' => 'Dashbord Courtier',
         ]);
     }
+
+    #[Route('/creer_utilisateur', name: 'app_page_creer_utilisateur')]
+    public function creerUtilisateur(): Response
+    {
+        dd("Création du compte Utilisateur");
+
+        return $this->render('page_principale/creer_utilisateur.html.twig', [
+            'pageName' => 'Création du compte Utilisateur',
+        ]);
+    }
+
+    #[Route('/creer_entreprise/{id_utilisateur}', name: 'app_page_creer_entreprise')]
+    public function creerEntreprise($id_utilisateur): Response
+    {
+        dd("Création du compte Entreprise par l'utilisateur " . $id_utilisateur);
+
+        return $this->render('page_principale/creer_entreprise.html.twig', [
+            'pageName' => 'Création du compte Entreprise',
+        ]);
+    }
+
+
+    #[Route('/', name: 'app_page_index')]
+    public function index(): Response
+    {
+        return $this->render('page_principale/index.html.twig', [
+            'pageName' => "Page d'acceuil du site",
+        ]);
+    }
+
+
 }
