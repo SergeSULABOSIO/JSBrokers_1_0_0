@@ -4,5 +4,17 @@
 {% endblock %}
 
 {% block body %}
-	{{ pageName }}
-{% endblock %}
+	<div class="container">
+		<div class="align-middle">
+			<p>
+				{{ pageName }}
+			</p>
+			<p>
+				Avant de commencer, vous devez créer un compte utilisateur, en cliquant sur le bouton ci-dessous:
+			</p>
+		<a class="btn btn-outline-secondary btn-success text-light border border-0" type="button" href="{{ path('app_page_creer_utilisateur') }}">
+			{{ ux_icon('wpf:add-user', {height: '25px', width: '25px'}) }}
+			Créer mon compte utilisateur
+		</a>
+	</p>
+</div></div>{% endblock %}
