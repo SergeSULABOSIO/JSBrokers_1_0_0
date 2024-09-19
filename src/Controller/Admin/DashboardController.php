@@ -69,7 +69,7 @@ class DashboardController extends AbstractDashboardController implements Command
 
 
     public function __construct(
-        private ChartBuilderInterface $chartBuilder,
+        // private ChartBuilderInterface $chartBuilder,
         private ServicePreferences $servicePreferences,
         private EntityManagerInterface $entityManager,
         private AdminUrlGenerator $adminUrlGenerator,

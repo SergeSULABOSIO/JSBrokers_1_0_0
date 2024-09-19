@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class TableauDeBordCourtierController extends AbstractController
 {
     public function __construct(
-        private ChartBuilderInterface $chartBuilder,
+        // private ChartBuilderInterface $chartBuilder,
         private ServicePreferences $servicePreferences,
         private EntityManagerInterface $entityManager,
         private AdminUrlGenerator $adminUrlGenerator,
@@ -34,33 +34,33 @@ class TableauDeBordCourtierController extends AbstractController
         
         // dd($user);
 
-        $chart = $this->chartBuilder->createChart(Chart::TYPE_LINE);
+        // $chart = $this->chartBuilder->createChart(Chart::TYPE_LINE);
 
-        $chart->setData([
-            'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            'datasets' => [
-                [
-                    'label' => 'My First dataset',
-                    'backgroundColor' => 'rgb(255, 99, 132)',
-                    'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [0, 10, 5, 2, 20, 30, 45],
-                ],
-            ],
-        ]);
+        // $chart->setData([
+        //     'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        //     'datasets' => [
+        //         [
+        //             'label' => 'My First dataset',
+        //             'backgroundColor' => 'rgb(255, 99, 132)',
+        //             'borderColor' => 'rgb(255, 99, 132)',
+        //             'data' => [0, 10, 5, 2, 20, 30, 45],
+        //         ],
+        //     ],
+        // ]);
 
-        $chart->setOptions([
-            'scales' => [
-                'y' => [
-                    'suggestedMin' => 0,
-                    'suggestedMax' => 100,
-                ],
-            ],
-        ]);
+        // $chart->setOptions([
+        //     'scales' => [
+        //         'y' => [
+        //             'suggestedMin' => 0,
+        //             'suggestedMax' => 100,
+        //         ],
+        //     ],
+        // ]);
 
 
         return $this->render('tableau_de_bord_courtier/index.html.twig', [
             'controller_name' => 'Tableau De Bord Courtier',
-            'chart' => $chart,
+            // 'chart' => $chart,
             'user' => $user,
         ]);
     }

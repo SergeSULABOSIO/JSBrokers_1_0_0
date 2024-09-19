@@ -18,7 +18,7 @@ class PagePrincipaleController extends AbstractController
 
 
     public function __construct(
-        private ChartBuilderInterface $chartBuilder,
+        // private ChartBuilderInterface $chartBuilder,
         private ServicePreferences $servicePreferences,
         private EntityManagerInterface $entityManager,
         private AdminUrlGenerator $adminUrlGenerator,
@@ -30,32 +30,34 @@ class PagePrincipaleController extends AbstractController
     #[Route('/principal', name: 'app_page_principale')]
     public function index(): Response
     {
-        $chart = $this->chartBuilder->createChart(Chart::TYPE_LINE);
+        // $chart = $this->chartBuilder->createChart(Chart::TYPE_LINE);
 
-        $chart->setData([
-            'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            'datasets' => [
-                [
-                    'label' => 'My First dataset',
-                    'backgroundColor' => 'rgb(255, 99, 132)',
-                    'borderColor' => 'rgb(255, 99, 132)',
-                    'data' => [0, 10, 5, 2, 20, 30, 45],
-                ],
-            ],
-        ]);
+        // $chart->setData([
+        //     'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        //     'datasets' => [
+        //         [
+        //             'label' => 'My First dataset',
+        //             'backgroundColor' => 'rgb(255, 99, 132)',
+        //             'borderColor' => 'rgb(255, 99, 132)',
+        //             'data' => [0, 10, 5, 2, 20, 30, 45],
+        //         ],
+        //     ],
+        // ]);
 
-        $chart->setOptions([
-            'scales' => [
-                'y' => [
-                    'suggestedMin' => 0,
-                    'suggestedMax' => 100,
-                ],
-            ],
-        ]);
+        // $chart->setOptions([
+        //     'scales' => [
+        //         'y' => [
+        //             'suggestedMin' => 0,
+        //             'suggestedMax' => 100,
+        //         ],
+        //     ],
+        // ]);
+
+        // dd($chart);
 
         return $this->render('page_principale/index.html.twig', [
             'controller_name' => 'PagePrincipaleController',
-            'chart' => $chart,
+            // 'chart' => $chart,
         ]);
     }
 }
