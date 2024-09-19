@@ -27,6 +27,8 @@ class PagePrincipaleController extends AbstractController
     #[Route('/', name: 'app_page_index')]
     public function index(): Response
     {
+        dd("Page Index");
+
         return $this->render('page_principale/index.html.twig', [
             'pageName' => "Page d'acceuil du site",
         ]);
