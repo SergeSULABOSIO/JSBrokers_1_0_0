@@ -4,5 +4,22 @@
 {% endblock %}
 
 {% block body %}
-	{{ pageName }}
+	<div class="container">
+		<div class="align-middle">
+			<p>
+				{{ pageName }}
+			</p>
+			<p>
+				Grâce à ce compte, vous aurez la possibilité de créer des entreprises ou y être invité.
+			</p>
+			<p>
+				{{ component ("NewUtilisateur") }}
+			</p>
+			<p>
+				{{ component ("BoutonLien", { type : 1, texte: "Se connecter", pathName : "app_page_login_utilisateur", icone: "mdi:company" })}}
+				{{ component ("BoutonLien", { type : 1, texte: "", pathName : "app_page_index", icone: "solar:home-linear" })}}
+			</p>
+
+		</p>
+	</div>
 {% endblock %}
