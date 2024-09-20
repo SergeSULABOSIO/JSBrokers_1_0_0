@@ -14,10 +14,10 @@ class BoutonLien
     public const TYPE_ERRROR = 3;
     public const TYPE_PRIMARY = 4;
 
-    public int $type;
-    public string $texte;
-    public string $icone;
-    public string $pathName;
+    public int $type = 0;
+    public string $texte = "";
+    public string $icone = "";
+    public string $pathName = "#";
 
     public function __construct() {}
 
@@ -28,7 +28,7 @@ class BoutonLien
                 return "btn btn-outline-secondary btn-success text-light border border-0";
 
             case self::TYPE_NORMAL:
-                return "btn btn-outline-secondary btn-light text-gray border border-0";
+                return "btn btn-outline-secondary btn-light text-gray border border-1";
 
             case self::TYPE_WARNING:
                 return "btn btn-outline-secondary btn-warning text-light border border-0";
