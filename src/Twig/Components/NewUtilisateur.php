@@ -10,6 +10,8 @@ class NewUtilisateur
 {
     use DefaultActionTrait;
     
+    public string $nom = "";
+    
     public function __construct()
     {
 
