@@ -28,7 +28,7 @@ class BoutonLien
                 return "btn btn-outline-secondary btn-success text-light border border-0";
 
             case self::TYPE_NORMAL:
-                return "btn btn-outline-secondary btn-light text-light border border-0";
+                return "btn btn-outline-secondary btn-light text-gray border border-0";
 
             case self::TYPE_WARNING:
                 return "btn btn-outline-secondary btn-warning text-light border border-0";
