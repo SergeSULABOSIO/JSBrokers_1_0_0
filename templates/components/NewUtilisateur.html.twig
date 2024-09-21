@@ -1,11 +1,11 @@
 <div {{ attributes }}>
+	<strong> {{saved}} <strong>
 	<form>
 		<input type="text" data-model="utilisateur.nom" placeholder="Nom de l'utilisateur">
 		<input type="email" data-model="utilisateur.email" placeholder="Adresse mail de l'utilisateur">
 		<input type="password" data-model="utilisateur.motDePasse" placeholder="Mot de passe de l'utilisateur">
 		<input type="password" data-model="utilisateur.motDePasseConfirme" placeholder="Confirmer le mot de passe">
 
-		<button type="button" data-model="mode" data-value="edit" data-action="live#update">
-			Mettre à jour</button>
+		<button data-action="live#action" data-live-action-param="enregistrerUtilisateurJSB">Enregistrer</button>
 	</form>
 </div>

@@ -4,6 +4,7 @@ namespace App\Twig\Components;
 
 use App\Entity\Utilisateur;
 use App\Entity\UtilisateurJSB;
+use DateTimeImmutable;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
@@ -31,7 +32,8 @@ class NewUtilisateur
     #[LiveAction]
     public function enregistrerUtilisateurJSB()
     {
-
+        $this->utilisateur->setCreatedAt(new DateTimeImmutable("now"));
+        dd($this->utilisateur);
         $this->saved = true;
     }
 }
