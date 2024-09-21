@@ -21,9 +21,10 @@ class NewUtilisateur extends AbstractController
 {
     use DefaultActionTrait;
 
-    #[LiveProp]
+    #[LiveProp(writable: true)]
     public bool $saved = false;
 
+    #[LiveProp(writable: true)]
     public bool $validated = false;
 
     #[LiveProp(writable: [
