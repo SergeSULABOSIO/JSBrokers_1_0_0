@@ -4,18 +4,17 @@ namespace App\Twig\Components;
 
 use App\Entity\Utilisateur;
 use App\Entity\UtilisateurJSB;
-use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
+use Symfony\UX\LiveComponent\Attribute\LiveAction;
+use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 
 #[AsLiveComponent()]
 class NewUtilisateur
 {
     use DefaultActionTrait;
 
-    // #[LiveProp]
-    // #[LiveProp(writable: true)]
-    // public string $nom = "";
+    public bool $saved = false;
 
     #[LiveProp(writable: [
         'nom',
@@ -27,5 +26,12 @@ class NewUtilisateur
 
     public function __construct() {
         $this->utilisateur = new UtilisateurJSB();
+    }
+
+    #[LiveAction]
+    public function enregistrerUtilisateurJSB()
+    {
+
+        $this->saved = true;
     }
 }
