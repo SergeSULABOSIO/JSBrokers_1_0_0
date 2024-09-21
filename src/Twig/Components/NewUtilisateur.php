@@ -21,6 +21,7 @@ class NewUtilisateur extends AbstractController
     use DefaultActionTrait;
     use ValidatableComponentTrait;
 
+    #[LiveProp(writable:true)]
     public bool $isSaved = false;
 
     #[LiveProp(writable: [

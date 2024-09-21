@@ -1,12 +1,12 @@
 <div {{ attributes }}>
-	{% if isSaved %}
+	{% if this.isSaved %}
 		Enregistrement effectué avec succès <strong>{{utilisateur.nom}}, id={{utilisateur.id}}</strong> !
 	{% endif %}
 	<form>
 		<input type="text" data-model="utilisateur.nom" placeholder="Nom de l'utilisateur" data-action="live#update" value="{{utilisateur.nom}}">
-		<input type="email" data-model="utilisateur.email" placeholder="Adresse mail de l'utilisateur">
-		<input type="password" data-model="utilisateur.motDePasse" placeholder="Mot de passe de l'utilisateur">
-		<input type="password" data-model="utilisateur.motDePasseConfirme" placeholder="Confirmer le mot de passe">
+		<input type="email" data-model="utilisateur.email" placeholder="Adresse mail de l'utilisateur" data-action="live#update" value="{{utilisateur.email}}">
+		<input type="password" data-model="utilisateur.motDePasse" placeholder="Mot de passe de l'utilisateur" data-action="live#update" value="{{utilisateur.motDePasse}}">
+		<input type="password" data-model="utilisateur.motDePasseConfirme" placeholder="Confirmer le mot de passe" data-action="live#update" value="{{utilisateur.motDePasseConfirme}}">
 
 		{# <button {{ live_action("afficherParams", { 'id': 12, 'nom' : utilisateur.nom } )}}>Afficher</button> #}
 		<button class="d-grid gap-2" {{ live_action("enregistrerUtilisateurJSB") }}>Enregistrer</button>
