@@ -3,13 +3,45 @@
 		Enregistrement effectué avec succès <strong>{{utilisateur.nom}}, id={{utilisateur.id}}</strong> !
 	{% endif %}
 	<form>
-		<input type="text" data-model="utilisateur.nom" placeholder="Nom de l'utilisateur" data-action="live#update" value="{{utilisateur.nom}}">
-		<input type="email" data-model="utilisateur.email" placeholder="Adresse mail de l'utilisateur" data-action="live#update" value="{{utilisateur.email}}">
-		<input type="password" data-model="utilisateur.motDePasse" placeholder="Mot de passe de l'utilisateur" data-action="live#update" value="{{utilisateur.motDePasse}}">
-		<input type="password" data-model="utilisateur.motDePasseConfirme" placeholder="Confirmer le mot de passe" data-action="live#update" value="{{utilisateur.motDePasseConfirme}}">
+		<label class="sr-only" for="inlineFormInputGroup">Utilisateur</label>
+		<div class="input-group mb-4">
+			<div class="input-group-prepend">
+				<div class="input-group-text">{{ ux_icon('nimbus:user', {height: '25px', width: '25px'}) }}</div>
+			</div>
+			<input type="text" class="form-control" data-model="utilisateur.nom" placeholder="Nom de l'utilisateur" value={{utilisateur.nom}}>
+		</div>
 
-		{# <button {{ live_action("afficherParams", { 'id': 12, 'nom' : utilisateur.nom } )}}>Afficher</button> #}
-		<button class="d-grid gap-2" {{ live_action("enregistrerUtilisateurJSB") }}>Enregistrer</button>
-		<button class="d-grid gap-2" {{ live_action("saveAndRedirect") }}>Enregistrer et retourner à la page d'acceuil</button>
+		<label class="sr-only" for="inlineFormInputGroup">Adresse mail</label>
+		<div class="input-group mb-4">
+			<div class="input-group-prepend">
+				<div class="input-group-text">{{ ux_icon('mdi:email-minus-outline', {height: '25px', width: '25px'}) }}</div>
+			</div>
+			<input class="form-control" type="email" data-model="utilisateur.email" placeholder="Adresse mail de l'utilisateur"  value="{{utilisateur.email}}">
+		</div>
+
+		<label class="sr-only" for="inlineFormInputGroup">Mot de passe</label>
+		<div class="input-group mb-4">
+			<div class="input-group-prepend">
+				<div class="input-group-text">{{ ux_icon('mynaui:lock-open-password', {height: '25px', width: '25px'}) }}</div>
+			</div>
+			<input class="form-control" type="password" data-model="utilisateur.motDePasse" placeholder="Mot de passe de l'utilisateur" value="{{utilisateur.motDePasse}}">
+		</div>
+
+		<label class="sr-only" for="inlineFormInputGroup">Confirmer le Mot de passe</label>
+		<div class="input-group mb-4">
+			<div class="input-group-prepend">
+				<div class="input-group-text">{{ ux_icon('mynaui:lock-open-password', {height: '25px', width: '25px'}) }}</div>
+			</div>
+			<input class="form-control" type="password" data-model="utilisateur.motDePasseConfirme" placeholder="Confirmer le mot de passe" value="{{utilisateur.motDePasseConfirme}}">
+		</div>
+
+		<div class="input-group mb-2">
+			<button class="form-control" {{ live_action("enregistrerUtilisateurJSB") }}>Enregistrer</button>
+		</div>
+		<div class="input-group mb-2">
+			<button class="form-control" {{ live_action("saveAndRedirect") }}>Enregistrer et retourner à la page d'acceuil</button>
+		</div>
 	</form>
 </div>
+
+
