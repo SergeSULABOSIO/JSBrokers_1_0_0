@@ -16,8 +16,7 @@ use Symfony\UX\LiveComponent\DefaultActionTrait;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 
-#[AsLiveComponent(csrf: true)]
-// #[AsLiveComponent()]
+#[AsLiveComponent()]
 class NewUtilisateur extends AbstractController
 {
     use DefaultActionTrait;
