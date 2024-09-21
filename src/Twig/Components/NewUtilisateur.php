@@ -18,9 +18,4 @@ class NewUtilisateur
     {
 
     }
-
-    public function getRandomNumber(): int
-    {
-        return rand(0, 100);
-    }
 }
