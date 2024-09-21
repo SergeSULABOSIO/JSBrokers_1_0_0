@@ -1,5 +1,7 @@
 <div {{ attributes }}>
-	<input type="search" data-model="nom"  placeholder="Votre recherche...">
+	<input type="search" data-model="nom" placeholder="Votre recherche...">
 
 	<strong>{{ this.nom }}</strong>
+	<strong>{{ this.randomNumber }}</strong>
+	<button data-action="live#$render">Generate a new number!</button>
 </div>
