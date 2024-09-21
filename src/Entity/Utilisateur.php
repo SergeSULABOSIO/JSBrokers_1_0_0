@@ -93,6 +93,12 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface, 
     {
         return $this->email;
     }
+    
+
+    public function eraseCredentials(): void
+    {
+        
+    }
 
     public function setEmail(string $email): self
     {
@@ -171,20 +177,6 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface, 
         $this->executer(new ComDetecterEvenementAttribut($this, "Mot de passe", $oldValue, $newValue, Evenement::FORMAT_VALUE_PRIMITIVE));
 
         return $this;
-    }
-
-    // /**
-    //  * @see UserInterface
-    //  */
-    // public function eraseCredentials()
-    // {
-    //     // If you store any temporary, sensitive data on the user, clear it here
-    //     // $this->plainPassword = null;
-    // }
-
-    public function eraseCredentials(): void
-    {
-        
     }
 
     public function getNom(): ?string
