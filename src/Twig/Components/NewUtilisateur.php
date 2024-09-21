@@ -3,29 +3,25 @@
 namespace App\Twig\Components;
 
 use DateTimeImmutable;
-use App\Entity\Utilisateur;
 use App\Entity\UtilisateurJSB;
-use App\Repository\UtilisateurJSBRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
+use Symfony\UX\LiveComponent\ValidatableComponentTrait;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[AsLiveComponent()]
 class NewUtilisateur extends AbstractController
 {
     use DefaultActionTrait;
+    use ValidatableComponentTrait;
 
-    #[LiveProp(writable: true)]
-    public bool $saved = false;
-
-    #[LiveProp(writable: true)]
-    public bool $validated = false;
+    public bool $isSaved = false;
 
     #[LiveProp(writable: [
         'nom',
@@ -33,30 +29,35 @@ class NewUtilisateur extends AbstractController
         'motDePasse',
         'motDePasseConfirme',
     ])]
+    #[Assert\Valid]
     public UtilisateurJSB $utilisateur;
 
-    public function __construct(private EntityManagerInterface $entityManager)
+    public function __construct()
     {
         $this->utilisateur = new UtilisateurJSB();
     }
 
     #[LiveAction]
-    public function enregistrerUtilisateurJSB()
+    public function enregistrerUtilisateurJSB(EntityManagerInterface $entityManager)
     {
+        $this->validate();
+        $this->isSaved = true;
+
         $this->utilisateur->setCreatedAt(new DateTimeImmutable("now"));
-        // dd($this->utilisateur);
-        $this->saved = true;
-        $this->validated = true;
-        $this->entityManager->persist($this->utilisateur);
-        $this->entityManager->flush();
+        $entityManager->persist($this->utilisateur);
+        $entityManager->flush();
     }
 
     #[LiveAction]
-    public function saveAndRedirect(): RedirectResponse
+    public function saveAndRedirect(EntityManagerInterface $entityManager): RedirectResponse
     {
+        $this->validate();
+        $this->isSaved = true;
+
         $this->utilisateur->setCreatedAt(new DateTimeImmutable("now"));
-        $this->entityManager->persist($this->utilisateur);
-        $this->entityManager->flush();
+        $entityManager->persist($this->utilisateur);
+        $entityManager->flush();
+
         return $this->redirectToRoute('app_page_index');
     }
 
@@ -65,6 +66,6 @@ class NewUtilisateur extends AbstractController
     public function afficherParams(#[LiveArg('id')] int $id, #[LiveArg('nom')] string $nom)
     {
         dd("Résultat de la saisie :", $id, $nom);
-        $this->saved = true;
+        $this->isSaved = true;
     }
 }
