@@ -16,13 +16,13 @@ class NewUtilisateur
     #[LiveProp(writable: true)]
     public string $nom = "";
 
-    #[LiveProp(writable: [
-        'email',
-        'plainPassword',
-        'nom',
-        'pseudo',
-    ])]
-    public Utilisateur $utilisateur;
+    // #[LiveProp(writable: [
+    //     'email',
+    //     'plainPassword',
+    //     'nom',
+    //     'pseudo',
+    // ])]
+    // public Utilisateur $utilisateur;
 
     public function __construct() {}
 }
