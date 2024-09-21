@@ -3,6 +3,7 @@
 namespace App\Twig\Components;
 
 use App\Entity\Utilisateur;
+use App\Entity\UtilisateurJSB;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 use Symfony\UX\LiveComponent\Attribute\LiveProp;
 use Symfony\UX\LiveComponent\DefaultActionTrait;
@@ -16,13 +17,12 @@ class NewUtilisateur
     #[LiveProp(writable: true)]
     public string $nom = "";
 
-    // #[LiveProp(writable: [
-    //     'email',
-    //     'plainPassword',
-    //     'nom',
-    //     'pseudo',
-    // ])]
-    // public Utilisateur $utilisateur;
+    #[LiveProp(writable: [
+        'nom',
+        'email',
+        'motDePasse',
+    ])]
+    public UtilisateurJSB $utilisateur;
 
     public function __construct() {}
 }
