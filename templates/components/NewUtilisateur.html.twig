@@ -1,9 +1,13 @@
 <div {{ attributes }}>
-	<strong>{{ this.nom }}</strong>
-	<form data-model="*">
-		<input type="search" name="nom" placeholder="Votre recherche...">
+	<strong>{{ this.utilisateur.nom }}</strong>
+	<form>
+		<input type="text" data-model="utilisateur.nom" placeholder="Nom de l'utilisateur">
+		<input type="email" data-model="utilisateur.email" placeholder="Adresse mail de l'utilisateur">
+		<input type="password" data-model="utilisateur.motDePasse" placeholder="Mot de passe de l'utilisateur">
+
+
 		{# <input type="search" data-model="nom" placeholder="Votre recherche..."> #}
 		{# <button data-action="live#$render">Generate a new number!</button> #}
 	</form>
-	
+
 </div>

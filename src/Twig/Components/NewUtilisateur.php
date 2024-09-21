@@ -14,15 +14,18 @@ class NewUtilisateur
     use DefaultActionTrait;
 
     // #[LiveProp]
-    #[LiveProp(writable: true)]
-    public string $nom = "";
+    // #[LiveProp(writable: true)]
+    // public string $nom = "";
 
     #[LiveProp(writable: [
         'nom',
         'email',
         'motDePasse',
+        'motDePasseConfirme',
     ])]
     public UtilisateurJSB $utilisateur;
 
-    public function __construct() {}
+    public function __construct() {
+        $this->utilisateur = new UtilisateurJSB();
+    }
 }

@@ -22,6 +22,9 @@ class UtilisateurJSB
     #[ORM\Column(length: 255)]
     private ?string $motDePasse = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $motDePasseConfirme = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class UtilisateurJSB
     public function setMotDePasse(string $motDePasse): static
     {
         $this->motDePasse = $motDePasse;
+
+        return $this;
+    }
+
+    public function getMotDePasseConfirme(): ?string
+    {
+        return $this->motDePasseConfirme;
+    }
+
+    public function setMotDePasseConfirme(string $motDePasseConfirme): static
+    {
+        $this->motDePasseConfirme = $motDePasseConfirme;
 
         return $this;
     }
