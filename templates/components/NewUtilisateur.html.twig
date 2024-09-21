@@ -16,7 +16,7 @@
 			<div class="input-group-prepend">
 				<div class="input-group-text">{{ ux_icon('mdi:email-minus-outline', {height: '25px', width: '25px'}) }}</div>
 			</div>
-			<input class="form-control" type="email" data-model="utilisateur.email" placeholder="Adresse mail de l'utilisateur"  value="{{utilisateur.email}}">
+			<input class="form-control" type="email" data-model="utilisateur.email" placeholder="Adresse mail de l'utilisateur"  value={{utilisateur.email}}>
 		</div>
 
 		<label class="sr-only" for="inlineFormInputGroup">Mot de passe</label>
@@ -24,7 +24,7 @@
 			<div class="input-group-prepend">
 				<div class="input-group-text">{{ ux_icon('mynaui:lock-open-password', {height: '25px', width: '25px'}) }}</div>
 			</div>
-			<input class="form-control" type="password" data-model="utilisateur.motDePasse" placeholder="Mot de passe de l'utilisateur" value="{{utilisateur.motDePasse}}">
+			<input class="form-control" type="password" data-model="utilisateur.motDePasse" placeholder="Mot de passe de l'utilisateur" value={{utilisateur.motDePasse}}>
 		</div>
 
 		<label class="sr-only" for="inlineFormInputGroup">Confirmer le Mot de passe</label>
@@ -32,7 +32,7 @@
 			<div class="input-group-prepend">
 				<div class="input-group-text">{{ ux_icon('mynaui:lock-open-password', {height: '25px', width: '25px'}) }}</div>
 			</div>
-			<input class="form-control" type="password" data-model="utilisateur.motDePasseConfirme" placeholder="Confirmer le mot de passe" value="{{utilisateur.motDePasseConfirme}}">
+			<input class="form-control" type="password" data-model="utilisateur.motDePasseConfirme" placeholder="Confirmer le mot de passe" value={{utilisateur.motDePasseConfirme}}>
 		</div>
 
 		<div class="input-group mb-2">
