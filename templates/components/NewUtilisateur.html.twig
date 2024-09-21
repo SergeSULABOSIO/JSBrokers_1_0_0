@@ -1,9 +1,13 @@
 <div {{ attributes }}>
-	<strong>{{ this.utilisateur.nom }}</strong>
+	<strong>{{ this.utilisateur.nom }}</strong></br>
+	<strong>{{ this.utilisateur.email }}</strong></br>
+	<strong>{{ this.utilisateur.motDePasse }}</strong></br>
+	<strong>{{ this.utilisateur.motDePasseConfirme }}</strong></br>
 	<form>
 		<input type="text" data-model="utilisateur.nom" placeholder="Nom de l'utilisateur">
 		<input type="email" data-model="utilisateur.email" placeholder="Adresse mail de l'utilisateur">
 		<input type="password" data-model="utilisateur.motDePasse" placeholder="Mot de passe de l'utilisateur">
+		<input type="password" data-model="utilisateur.motDePasseConfirme" placeholder="Confirmer le mot de passe">
 
 
 		{# <input type="search" data-model="nom" placeholder="Votre recherche..."> #}
