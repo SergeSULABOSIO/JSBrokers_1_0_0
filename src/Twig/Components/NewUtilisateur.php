@@ -7,6 +7,7 @@ use App\Entity\Utilisateur;
 use App\Entity\UtilisateurJSB;
 use App\Repository\UtilisateurJSBRepository;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\UX\LiveComponent\Attribute\LiveArg;
@@ -15,7 +16,7 @@ use Symfony\UX\LiveComponent\DefaultActionTrait;
 use Symfony\UX\LiveComponent\Attribute\LiveAction;
 use Symfony\UX\LiveComponent\Attribute\AsLiveComponent;
 
-#[AsLiveComponent(csrf: false)]
+#[AsLiveComponent(csrf: true)]
 // #[AsLiveComponent()]
 class NewUtilisateur extends AbstractController
 {
@@ -34,7 +35,7 @@ class NewUtilisateur extends AbstractController
     ])]
     public UtilisateurJSB $utilisateur;
 
-    public function __construct()
+    public function __construct(private EntityManagerInterface $entityManager)
     {
         $this->utilisateur = new UtilisateurJSB();
     }
@@ -46,12 +47,16 @@ class NewUtilisateur extends AbstractController
         // dd($this->utilisateur);
         $this->saved = true;
         $this->validated = true;
+        $this->entityManager->persist($this->utilisateur);
+        $this->entityManager->flush();
     }
 
     #[LiveAction]
     public function saveAndRedirect(): RedirectResponse
     {
         $this->utilisateur->setCreatedAt(new DateTimeImmutable("now"));
+        $this->entityManager->persist($this->utilisateur);
+        $this->entityManager->flush();
         return $this->redirectToRoute('app_page_index');
     }
 
